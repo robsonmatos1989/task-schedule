@@ -1,26 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
-        const addTaskButton = document.getElementById('addTaskButton');
-        const taskInput = document.getElementById('taskInput');
-        const taskList = document.getElementById('taskList');
 
-        addTaskButton.addEventListener('click', function() {
-          const taskText = taskInput.value.trim();
+  const taskInput = document.getElementbyId('taskInput');
+  const taskList = document.getElementbyId('taskList');
+  const addTaskButton = document.getElementbyId('addTaskbutton');
 
-          if (taskText !== '') {
-            const taskItem = document.createElement('li');
-            taskItem.textContent = taskText;
+  addTaskButton.addEventListener('click', function() {
+    //O trim() é um método de string em JavaScript que remove quaisquer espaços em branco no início e no final da string
+    const taskText = taskInput.value.trim(); //
 
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Excluir';
+    if(taskText !== ''){
+      const taskItem = document.createElement('li'); // cria um elemento do tipo li
+      taskItem.textContent = taskText;
 
-            taskItem.appendChild(deleteButton);
-            taskList.appendChild(taskItem);
+      const deleteButton = document.createElement('button'); // cria um elemento do tipo botton
 
-            deleteButton.addEventListener('click', function() {
-              taskItem.remove();
-            });
+      taskItem.oppendChild(deleteButton);
+      taskList.oppendChild(taskItem);
 
-            taskInput.value = '';
-          }
-        });
+
+      deleteButton.addEventlistener('click', function(){
+        taskItem.remove();
       });
+      taskInput.value = '';
+    }
+  });
+});
