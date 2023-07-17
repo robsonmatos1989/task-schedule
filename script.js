@@ -1,18 +1,26 @@
-$(document).ready(function() {
-        $('#addTaskButton').click(function() {
-          const taskInput = $('#taskInput').val();
+document.addEventListener('DOMContentLoaded', function() {
+        const addTaskButton = document.getElementById('addTaskButton');
+        const taskInput = document.getElementById('taskInput');
+        const taskList = document.getElementById('taskList');
 
-          if (taskInput.trim() !== '') {
-            const taskItem = $('<li>').text(taskInput);
-            const deleteButton = $('<button>').text('Excluir');
-            taskItem.append(deleteButton);
-            $('#taskList').append(taskItem);
+        addTaskButton.addEventListener('click', function() {
+          const taskText = taskInput.value.trim();
 
-            deleteButton.click(function() {
+          if (taskText !== '') {
+            const taskItem = document.createElement('li');
+            taskItem.textContent = taskText;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Excluir';
+
+            taskItem.appendChild(deleteButton);
+            taskList.appendChild(taskItem);
+
+            deleteButton.addEventListener('click', function() {
               taskItem.remove();
             });
 
-            $('#taskInput').val('');
+            taskInput.value = '';
           }
         });
       });
