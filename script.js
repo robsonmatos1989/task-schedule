@@ -25,3 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+const divElement = document.querySelector('#container'); // Seleciona a div desejada
+
+divElement.style.display = 'flex'; // Configura a div para usar um layout flexível
+divElement.style.justifyContent = 'center'; // Centraliza horizontalmente o conteúdo da div
