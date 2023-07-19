@@ -25,37 +25,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-
-
-
-
-
-
-/*document.addEventListener('DOMContentLoaded', function() {
-
-  const taskInput = document.getElementbyId('taskInput');
-  const taskList = document.getElementbyId('taskList');
-  const addTaskButton = document.getElementbyId('addTaskbutton');
-
-  addTaskButton.addEventListener('click', function() {
-    
-    const taskText = taskInput.value.trim(); //
-
-    if(taskText !== ''){
-      const taskItem = document.createElement('li'); // 
-      taskItem.textContent = taskText;
-
-      const deleteButton = document.createElement('button'); 
-
-      taskItem.oppendChild(deleteButton);
-      taskList.oppendChild(taskItem);
-
-
-      deleteButton.addEventlistener('click', function(){
-        taskItem.remove();
-      });
-      taskInput.value = '';
-    }
-  });
-});*/
-
