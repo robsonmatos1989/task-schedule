@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (taskText !== '') {
       const taskItem = document.createElement('li');
-      taskItem.textContent = taskText;
+
+      const taskTextSpan = document.createElement('span');
+      taskTextSpan.textContent = taskText + ' '; // Adicionando espaço em branco após o texto
+      taskItem.appendChild(taskTextSpan);
 
       const deleteButton = document.createElement('button');
       deleteButton.textContent = 'Excluir';
@@ -48,7 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (tasks) {
       tasks.forEach(taskText => {
         const taskItem = document.createElement('li');
-        taskItem.textContent = taskText;
+
+        const taskTextSpan = document.createElement('span');
+        taskTextSpan.textContent = taskText + ' '; // Adicionando espaço em branco após o texto
+        taskItem.appendChild(taskTextSpan);
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Excluir';
@@ -67,4 +73,3 @@ document.addEventListener('DOMContentLoaded', function() {
   // Chamar a função loadTasksFromLocalStorage após a definição dos elementos
   loadTasksFromLocalStorage();
 });
-
