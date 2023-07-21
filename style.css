@@ -4,3 +4,7 @@
 ul{
 	list-style: none;
 }
+
+.task-item {
+  margin-bottom: 5px; /* Adiciona 5 pixels de margem inferior entre a tarefa e o botão Excluir */
+}
