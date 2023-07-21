@@ -5,42 +5,44 @@ document.addEventListener('DOMContentLoaded', function() {
   const addTaskButton = document.getElementById('addTaskButton');
 
   addTaskButton.addEventListener('click', function() {
-    const taskText = taskInput.value.trim();
-    const timerValue = parseInt(taskTimer.value);
+  const taskText = taskInput.value.trim();
+  const timerValue = parseInt(taskTimer.value);
 
-    if (taskText !== '') {
-      const taskId = generateTaskId();
+  if (taskText !== '') {
+    const taskId = generateTaskId();
 
-      const taskItem = document.createElement('li');
+    const taskItem = document.createElement('li');
 
-      const taskContainer = document.createElement('div'); // Elemento para conter o texto da tarefa e o botão
-      taskItem.appendChild(taskContainer);
+    const taskContainer = document.createElement('div'); // Elemento para conter o texto da tarefa e o botão
+    taskItem.appendChild(taskContainer);
 
-      const taskTextSpan = document.createElement('span');
-      taskTextSpan.textContent = taskText;
-      taskContainer.appendChild(taskTextSpan);
+    const taskTextSpan = document.createElement('span');
+    taskTextSpan.textContent = taskText;
+    taskTextSpan.style.marginRight = '10px'; // Adicionando 10 pixels de margem à direita do texto da tarefa
+    taskContainer.appendChild(taskTextSpan);
 
-      const deleteButton = document.createElement('button');
-      deleteButton.textContent = 'Excluir';
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Excluir';
 
-      taskContainer.appendChild(deleteButton);
-      taskList.appendChild(taskItem);
+    taskContainer.appendChild(deleteButton);
+    taskList.appendChild(taskItem);
 
-      deleteButton.addEventListener('click', function() {
-        taskItem.remove();
-        removeTaskFromLocalStorage(taskId);
-      });
+    deleteButton.addEventListener('click', function() {
+      taskItem.remove();
+      removeTaskFromLocalStorage(taskId);
+    });
 
-      taskInput.value = '';
-      taskTimer.value = '';
+    taskInput.value = '';
+    taskTimer.value = '';
 
-      saveTaskToLocalStorage({ id: taskId, text: taskText });
+    saveTaskToLocalStorage({ id: taskId, text: taskText });
 
-      setTimeout(function() {
-        showAlert(taskText);
-      }, timerValue * 60 * 1000);
-    }
-  });
+    setTimeout(function() {
+      showAlert(taskText);
+    }, timerValue * 60 * 1000);
+  }
+});
+
 
   function showAlert(taskText) {
     alert('Lembrete: ' + taskText);
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
-  function generateTaskId() {
+  function generateTaskId() { // gera um ID para cada tarefa
     return Date.now().toString(36);
   }
 
