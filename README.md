@@ -1,6 +1,4 @@
 # to-do-list
-sistema para cadsatro de usuário e longin, que consome api de CEP
-
   - JavaScript
   - HTML
   - CSS
